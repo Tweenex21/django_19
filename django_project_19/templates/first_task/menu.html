@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    {% block title %}
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    {% endblock %}
+</head>
+</html>
+
+<body>
+    <header>
+        {% block pagename %}
+        <h1> {{ page }} </h1>
+        {% endblock %}
+    </header>
+
+    <nav>
+        {% block menu %}
+        <p>
+            <a href="http://127.0.0.1:8000/platform/"><h2> Главная </h2></a>
+        </p>
+        <p>
+            <a href="http://127.0.0.1:8000/platform/games/"><h2> Магазин </h2></a>
+        </p>
+        <p>
+            <a href="http://127.0.0.1:8000/platform/cart/"><h2> Корзина </h2></a>
+        </p>
+        {% endblock %}
+    </nav>
+
+    <main>
+        {% block content %}
+        <ul>
+            {% for game in games %}
+            <li> {{ game.title }} | {{ game.description }}. Стоимость: {{ game.cost }} <button> КУПИТЬ </button></li>
+            {% endfor %}
+        </ul>
+        {% endblock %}
+    </main>
+</body>
